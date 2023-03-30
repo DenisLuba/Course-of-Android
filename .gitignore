@@ -1,0 +1,31 @@
+# Extra .gitignore files
+*/.gitignore
+**/app/.gitignore
+
+# Extra gradle/ and idea/ directories
+**/.gradle/
+**/gradle/
+**/.idea/
+
+# Extra gradle files
+**/build.gradle
+**/gradle.properties
+**/gradlew
+**/gradlew.bat
+**/local.properties
+**/settings.gradle
+
+**/build/
+**/libs/
+**/proguard-rules.pro
+
+# Tests
+**/androidTest/
+**/test/
+
+# res/ except layout/ and values/
+**/res/d*/
+**/res/m*/
+**/res/values-night/
+**/res/xml/backup_rules.xml
+**/res/xml/data_extraction_rules.xml

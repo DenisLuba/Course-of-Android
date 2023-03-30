@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="squareSize">100dp</dimen>
+    <dimen name="padding_TV">36dp</dimen>
+    <dimen name="size_TV">24sp</dimen>
+</resources>

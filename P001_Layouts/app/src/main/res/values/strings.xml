@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">P001_Layouts</string>
     <string name="textview">TextView</string>
+    <string name="top_start">Top Start</string>
+    <string name="bottom_end">Bottom End</string>
+    <string name="first">First</string>
 </resources>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="HardcodedText">
+
+    <Button
+        android:id="@+id/centerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Center"
+
+        android:layout_centerInParent="true" />
+
+<!-- ************************************************** -->
+
+    <View
+        android:id="@+id/topView"
+        android:layout_width="10dp"
+        android:layout_height="100dp"
+        android:background="@color/red"
+
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/centerButton" />
+
+    <View
+        android:id="@+id/bottomView"
+        android:layout_width="10dp"
+        android:layout_height="100dp"
+        android:background="@color/green"
+
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/centerButton" />
+
+    <View
+        android:id="@+id/leftView"
+        android:layout_width="100dp"
+        android:layout_height="10dp"
+        android:background="@color/blue"
+
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@+id/centerButton"
+        android:layout_marginEnd="8dp"/>
+
+    <View
+        android:id="@+id/rightView"
+        android:layout_width="100dp"
+        android:layout_height="10dp"
+        android:background="@color/black"
+
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/centerButton"
+        android:layout_marginStart="8dp"/>
+
+<!-- ************************************************** -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Top Left"
+        android:textColor="@color/purple_700"
+        android:background="@color/red"
+        android:padding="4dp"
+
+        android:layout_alignTop="@id/topView"
+        android:layout_alignStart="@id/leftView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Top Right"
+        android:textColor="@color/purple_700"
+        android:background="@color/red"
+        android:padding="4dp"
+
+        android:layout_alignTop="@id/topView"
+        android:layout_alignEnd="@id/rightView" />
+
+    <TextView
+        android:id="@+id/bottomLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bottom Left"
+        android:textColor="@color/purple_700"
+        android:background="@color/red"
+        android:padding="4dp"
+
+        android:layout_alignBottom="@id/bottomView"
+        android:layout_alignStart="@id/leftView" />
+
+    <TextView
+        android:id="@+id/bottomRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bottom Right"
+        android:textColor="@color/purple_700"
+        android:background="@color/red"
+        android:padding="4dp"
+
+        android:layout_marginEnd="-24dp"
+        android:layout_marginBottom="24dp"
+        android:layout_alignBottom="@id/bottomView"
+        android:layout_alignEnd="@id/rightView" />
+
+<!-- ************************************************** -->
+
+    <TextView
+        android:id="@+id/topLeftParent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:text="Top Left Parent"
+        android:background="@color/purple_700"
+        android:textColor="@color/cyan" />
+
+    <TextView
+        android:id="@+id/topRightParent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:text="Top Right Parent"
+        android:background="@color/purple_700"
+        android:textColor="@color/cyan"
+
+        android:layout_alignParentEnd="true"/>
+
+    <TextView
+        android:id="@+id/bottomLeftParent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:text="Bottom Left Parent"
+        android:background="@color/purple_700"
+        android:textColor="@color/cyan"
+
+        android:layout_alignParentBottom="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:text="Bottom Left Parent"
+        android:background="@color/purple_700"
+        android:textColor="@color/cyan"
+
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"/>
+
+<!-- ************************************************** -->
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:text="Between 2 Views"
+        android:background="@color/top_start_square"
+        android:textColor="@color/teal_700"
+        android:gravity="center"
+
+        android:layout_below="@id/topLeftParent"
+        android:layout_toEndOf="@id/topLeftParent"
+        android:layout_toStartOf="@id/topRightParent"/>
+
+<!-- ************************************************** -->
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_above="@id/bottomLeftParent"
+        android:layout_below="@id/bottomView"
+        android:layout_alignStart="@id/bottomLeft"
+        android:layout_alignEnd="@id/bottomRight">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/purple_200"
+            android:text="Centred Between\n\n4 views"
+            android:padding="12dp"
+            android:gravity="center"
+
+            android:textColor="@color/black" />
+
+    </FrameLayout>
+
+</RelativeLayout>

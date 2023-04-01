@@ -11,4 +11,7 @@
     <color name="bottom_end_square">#8888FF</color>
     <color name="top_start_square">#FF8888</color>
     <color name="center_square">#88FF88</color>
+    <color name="green">#00FF00</color>
+    <color name="blue">#0000FF</color>
+    <color name="cyan">#44AAFF</color>
 </resources>

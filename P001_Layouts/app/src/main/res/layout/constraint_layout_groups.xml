@@ -123,6 +123,7 @@
         android:background="@color/purple_700"
         android:textColor="@color/cyan"
         android:padding="4dp"
+        android:visibility="gone"
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -135,6 +136,7 @@
         android:background="@color/purple_700"
         android:textColor="@color/cyan"
         android:padding="4dp"
+        android:visibility="gone"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -166,6 +168,7 @@
 <!--***************************************************-->
     
     <TextView
+        android:id="@+id/between2views"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:padding="4dp"
@@ -173,6 +176,10 @@
         android:background="@color/top_start_square"
         android:textColor="@color/teal_700"
         android:gravity="center"
+
+        android:layout_marginHorizontal="12dp"
+        app:layout_goneMarginStart="0dp"
+        app:layout_goneMarginEnd="36dp"
 
         app:layout_constraintStart_toEndOf="@id/topLeftParent"
         app:layout_constraintEnd_toStartOf="@id/topRightParent"
@@ -193,5 +200,23 @@
         app:layout_constraintEnd_toEndOf="@id/bottomRight"
         app:layout_constraintTop_toBottomOf="@id/bottomLeft"
         app:layout_constraintBottom_toTopOf="@id/bottomLeftParent" />
+
+<!--***************************************************-->
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/center_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:constraint_referenced_ids="centerButton,leftView,rightView,topView,bottomView" />
+
+<!--    <androidx.constraintlayout.widget.Group-->
+<!--        android:id="@+id/top_group"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:visibility="gone"-->
+<!--        app:constraint_referenced_ids="topLeftParent,topRightParent,between2views" />-->
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

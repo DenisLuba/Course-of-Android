@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="HardcodedText">
+
+<!--    Packed Chain    -->
+
+    <TextView
+        android:id="@+id/packedChainTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Packed Chain"
+
+        android:layout_margin="12dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+<!--***************************************************************-->
+
+    <TextView
+        android:id="@+id/packedChainViewHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="111"
+        style="@style/TextViewStyleH"
+
+        android:layout_marginTop="12dp"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@id/packedChainTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/packedChainView2" />
+
+    <TextView
+        android:id="@+id/packedChainView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="22222"
+        style="@style/TextViewStyleH"
+
+        app:layout_constraintTop_toTopOf="@id/packedChainViewHeader"
+        app:layout_constraintStart_toEndOf="@id/packedChainViewHeader"
+        app:layout_constraintEnd_toStartOf="@id/packedChainView3" />
+
+    <TextView
+        android:id="@+id/packedChainView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3333333333"
+        style="@style/TextViewStyleH"
+
+        app:layout_constraintTop_toTopOf="@id/packedChainView2"
+        app:layout_constraintStart_toEndOf="@id/packedChainView2"
+        app:layout_constraintEnd_toStartOf="@id/packedChainView4" />
+
+    <TextView
+        android:id="@+id/packedChainView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4444"
+        style="@style/TextViewStyleH"
+
+        app:layout_constraintTop_toTopOf="@id/packedChainView3"
+        app:layout_constraintStart_toEndOf="@id/packedChainView3"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+<!--***************************************************************-->
+
+<!--    Spread Chain    -->
+
+    <TextView
+        android:id="@+id/spreadChainTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Spread Chain"
+
+        android:layout_margin="12dp"
+        app:layout_constraintTop_toBottomOf="@id/packedChainViewHeader"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+<!--***************************************************************-->
+
+    <TextView
+        android:id="@+id/spreadChainViewHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="111"
+        style="@style/TextViewStyleH"
+
+        android:layout_marginTop="12dp"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintTop_toBottomOf="@id/spreadChainTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/spreadChainView2" />
+
+    <TextView
+        android:id="@+id/spreadChainView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="22222"
+        style="@style/TextViewStyleH"
+
+        app:layout_constraintTop_toTopOf="@id/spreadChainViewHeader"
+        app:layout_constraintStart_toEndOf="@id/spreadChainViewHeader"
+        app:layout_constraintEnd_toStartOf="@id/spreadChainView3" />
+
+    <TextView
+        android:id="@+id/spreadChainView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3333333333"
+        style="@style/TextViewStyleH"
+
+        app:layout_constraintTop_toTopOf="@id/spreadChainView2"
+        app:layout_constraintStart_toEndOf="@id/spreadChainView2"
+        app:layout_constraintEnd_toStartOf="@id/spreadChainView4" />
+
+    <TextView
+        android:id="@+id/spreadChainView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4444"
+        style="@style/TextViewStyleH"
+
+        app:layout_constraintTop_toTopOf="@id/spreadChainView3"
+        app:layout_constraintStart_toEndOf="@id/spreadChainView3"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+<!--***************************************************************-->
+
+<!--    Spread Inside Chain    -->
+
+    <TextView
+        android:id="@+id/spreadInsideChainTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Spread Inside Chain"
+
+        android:layout_margin="12dp"
+        app:layout_constraintTop_toBottomOf="@id/spreadChainViewHeader"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+<!--***************************************************************-->
+
+    <TextView
+        android:id="@+id/spreadInsideChainViewHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="111"
+        style="@style/TextViewStyleH"
+
+        android:layout_marginTop="12dp"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintTop_toBottomOf="@id/spreadInsideChainTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/spreadInsideChainView2" />
+
+    <TextView
+        android:id="@+id/spreadInsideChainView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="22222"
+        style="@style/TextViewStyleH"
+
+        app:layout_constraintTop_toTopOf="@id/spreadInsideChainViewHeader"
+        app:layout_constraintStart_toEndOf="@id/spreadInsideChainViewHeader"
+        app:layout_constraintEnd_toStartOf="@id/spreadInsideChainView3" />
+
+    <TextView
+        android:id="@+id/spreadInsideChainView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3333333333"
+        style="@style/TextViewStyleH"
+
+        app:layout_constraintTop_toTopOf="@id/spreadInsideChainView2"
+        app:layout_constraintStart_toEndOf="@id/spreadInsideChainView2"
+        app:layout_constraintEnd_toStartOf="@id/spreadInsideChainView4" />
+
+    <TextView
+        android:id="@+id/spreadInsideChainView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4444"
+        style="@style/TextViewStyleH"
+
+        app:layout_constraintTop_toTopOf="@id/spreadInsideChainView3"
+        app:layout_constraintStart_toEndOf="@id/spreadInsideChainView3"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+<!--***************************************************************-->
+
+    <View
+        android:id="@+id/horizontalLine"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#888888"
+        android:layout_marginTop="12dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spreadInsideChainViewHeader" />
+
+<!--***************************************************************-->
+
+    <TextView
+        android:id="@+id/packedChainTitleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Packed Chain"
+        android:background="@drawable/back"
+        android:gravity="center"
+        android:padding="4dp"
+
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@id/horizontalLine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.33333" />
+
+    <TextView
+        android:id="@+id/spreadChainTitleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Spread Chain"
+        android:background="@drawable/back"
+        android:gravity="center"
+        android:padding="4dp"
+
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@id/horizontalLine"
+        app:layout_constraintStart_toEndOf="@id/packedChainTitleHorizontal"
+        app:layout_constraintWidth_percent="0.33334"/>
+
+    <TextView
+        android:id="@+id/spreadInsideChainTitleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Spread Inside Chain"
+        android:background="@drawable/back"
+        android:gravity="center"
+        android:padding="4dp"
+
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@id/horizontalLine"
+        app:layout_constraintStart_toEndOf="@id/spreadChainTitleHorizontal"
+        app:layout_constraintWidth_percent="0.33333"/>
+
+<!--***************************************************************-->
+
+    <View
+        android:id="@+id/horizontalLine2"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#888888"
+        android:layout_marginTop="12dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spreadInsideChainTitleHorizontal" />
+
+<!--***************************************************************-->
+
+<!--    Packed Chain Vertical   -->
+
+    <TextView
+        android:id="@+id/packedChainViewHeaderVertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="111"
+        style="@style/TextViewStyleV"
+
+        android:layout_marginTop="12dp"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@id/horizontalLine2"
+        app:layout_constraintBottom_toTopOf="@id/packedChainView2Vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/packedChainTitleHorizontal" />
+
+    <TextView
+        android:id="@+id/packedChainView2Vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="22222"
+        style="@style/TextViewStyleV"
+
+        app:layout_constraintTop_toBottomOf="@id/packedChainViewHeaderVertical"
+        app:layout_constraintStart_toStartOf="@id/packedChainTitleHorizontal"
+        app:layout_constraintEnd_toEndOf="@id/packedChainTitleHorizontal"
+        app:layout_constraintBottom_toTopOf="@id/packedChainView3Vertical"/>
+
+    <TextView
+        android:id="@+id/packedChainView3Vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3333333333"
+        style="@style/TextViewStyleV"
+
+        app:layout_constraintTop_toBottomOf="@id/packedChainView2Vertical"
+        app:layout_constraintBottom_toTopOf="@id/packedChainView4Vertical"
+        app:layout_constraintStart_toStartOf="@id/packedChainTitleHorizontal"
+        app:layout_constraintEnd_toEndOf="@id/packedChainTitleHorizontal" />
+
+    <TextView
+        android:id="@+id/packedChainView4Vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4444"
+        style="@style/TextViewStyleV"
+
+        app:layout_constraintTop_toBottomOf="@id/packedChainView3Vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/packedChainTitleHorizontal"
+        app:layout_constraintEnd_toEndOf="@id/packedChainTitleHorizontal" />
+
+<!--***************************************************************-->
+
+    <!--    Spread Chain Vertical  -->
+
+    <TextView
+        android:id="@+id/spreadChainViewHeaderVertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="111"
+        style="@style/TextViewStyleV"
+
+        android:layout_marginTop="12dp"
+        app:layout_constraintVertical_chainStyle="spread"
+        app:layout_constraintTop_toBottomOf="@id/horizontalLine2"
+        app:layout_constraintBottom_toTopOf="@id/spreadChainView2Vertical"
+        app:layout_constraintStart_toStartOf="@id/spreadChainTitleHorizontal"
+        app:layout_constraintEnd_toEndOf="@id/spreadChainTitleHorizontal" />
+
+    <TextView
+        android:id="@+id/spreadChainView2Vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="22222"
+        style="@style/TextViewStyleV"
+
+        app:layout_constraintTop_toBottomOf="@id/spreadChainViewHeaderVertical"
+        app:layout_constraintBottom_toTopOf="@id/spreadChainView3Vertical"
+        app:layout_constraintStart_toStartOf="@id/spreadChainTitleHorizontal"
+        app:layout_constraintEnd_toEndOf="@id/spreadChainTitleHorizontal" />
+
+    <TextView
+        android:id="@+id/spreadChainView3Vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3333333333"
+        style="@style/TextViewStyleV"
+
+        app:layout_constraintTop_toBottomOf="@id/spreadChainView2Vertical"
+        app:layout_constraintBottom_toTopOf="@id/spreadChainView4Vertical"
+        app:layout_constraintStart_toStartOf="@id/spreadChainTitleHorizontal"
+        app:layout_constraintEnd_toEndOf="@id/spreadChainTitleHorizontal" />
+
+    <TextView
+        android:id="@+id/spreadChainView4Vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4444"
+        style="@style/TextViewStyleV"
+
+        app:layout_constraintTop_toBottomOf="@id/spreadChainView3Vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/spreadChainTitleHorizontal"
+        app:layout_constraintEnd_toEndOf="@id/spreadChainTitleHorizontal" />
+
+<!--***************************************************************-->
+
+    <!--    Spread Inside Chain Vertical  -->
+
+    <TextView
+        android:id="@+id/spreadInsideChainViewHeaderVertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="111"
+        style="@style/TextViewStyleV"
+
+        android:layout_marginTop="12dp"
+        app:layout_constraintVertical_chainStyle="spread_inside"
+        app:layout_constraintTop_toBottomOf="@id/horizontalLine2"
+        app:layout_constraintBottom_toTopOf="@id/spreadInsideChainView2Vertical"
+        app:layout_constraintStart_toStartOf="@id/spreadInsideChainTitleHorizontal"
+        app:layout_constraintEnd_toEndOf="@id/spreadInsideChainTitleHorizontal" />
+
+    <TextView
+        android:id="@+id/spreadInsideChainView2Vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="22222"
+        style="@style/TextViewStyleV"
+
+        app:layout_constraintTop_toBottomOf="@id/spreadInsideChainViewHeaderVertical"
+        app:layout_constraintBottom_toTopOf="@id/spreadInsideChainView3Vertical"
+        app:layout_constraintStart_toStartOf="@id/spreadInsideChainTitleHorizontal"
+        app:layout_constraintEnd_toEndOf="@id/spreadInsideChainTitleHorizontal" />
+
+    <TextView
+        android:id="@+id/spreadInsideChainView3Vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3333333333"
+        style="@style/TextViewStyleV"
+
+        app:layout_constraintTop_toBottomOf="@id/spreadInsideChainView2Vertical"
+        app:layout_constraintBottom_toTopOf="@id/spreadInsideChainView4Vertical"
+        app:layout_constraintStart_toStartOf="@id/spreadInsideChainTitleHorizontal"
+        app:layout_constraintEnd_toEndOf="@id/spreadInsideChainTitleHorizontal" />
+
+    <TextView
+        android:id="@+id/spreadInsideChainView4Vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4444"
+        style="@style/TextViewStyleV"
+
+        app:layout_constraintTop_toBottomOf="@id/spreadInsideChainView3Vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/spreadInsideChainTitleHorizontal"
+        app:layout_constraintEnd_toEndOf="@id/spreadInsideChainTitleHorizontal" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

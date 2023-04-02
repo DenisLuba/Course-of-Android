@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="HardcodedText">
+
+    <TextView
+        android:id="@+id/textView_100"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="100%"
+        android:textColor="@color/white"
+        android:background="#FF8888"
+        android:padding="4dp"
+        android:gravity="center"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+        android:id="@+id/textView_75"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="75%"
+        android:textColor="@color/black"
+        android:background="#88FF88"
+        android:padding="4dp"
+        android:gravity="center"
+
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@id/textView_100"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.75" />
+
+        <TextView
+        android:id="@+id/textView_50"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="50%"
+        android:textColor="@color/white"
+        android:background="#8888FF"
+        android:padding="4dp"
+        android:gravity="center"
+
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@id/textView_75"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintWidth_percent="0.5" />
+
+<!--**********************************************************-->
+
+    <View
+        android:id="@+id/point_1"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:background="@color/black"
+
+        android:layout_marginStart="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <View
+        android:id="@+id/point_2"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:background="@color/black"
+
+        android:layout_marginEnd="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+<!--**********************************************************-->
+
+    <Space
+        android:id="@+id/pinPointLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintStart_toEndOf="@id/point_1"
+        app:layout_constraintEnd_toStartOf="@id/point_2"
+        app:layout_constraintTop_toTopOf="@id/point_1"
+        app:layout_constraintHorizontal_bias="0.1" />
+
+    <Space
+        android:id="@+id/pinPointRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintStart_toEndOf="@id/point_1"
+        app:layout_constraintEnd_toStartOf="@id/point_2"
+        app:layout_constraintTop_toTopOf="@id/point_2"
+        app:layout_constraintHorizontal_bias="0.9" />
+
+<!--**********************************************************-->
+
+    <TextView
+        android:id="@+id/constraintPercentageView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="constrained 80%"
+        android:padding="4dp"
+        android:textColor="@color/black"
+        android:background="#88FFFF"
+        android:gravity="center"
+
+        app:layout_constraintTop_toTopOf="@id/point_1"
+        app:layout_constraintBottom_toBottomOf="@id/point_1"
+        app:layout_constraintStart_toStartOf="@id/pinPointLeft"
+        app:layout_constraintEnd_toEndOf="@id/pinPointRight" />
+
+<!--**********************************************************-->
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#88000000"
+
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintDimensionRatio="H, 0.5"
+        app:layout_constraintTop_toBottomOf="@id/constraintPercentageView"
+        app:layout_constraintStart_toStartOf="@id/constraintPercentageView"
+        app:layout_constraintEnd_toEndOf="@id/constraintPercentageView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -47,9 +47,9 @@
         android:layout_height="wrap_content"
         android:layout_width="0dp"
 
-        app:flow_wrapMode="aligned"
+        app:flow_wrapMode="chain"
         app:flow_horizontalBias="0.2"
-        app:flow_horizontalStyle="packed"
+        app:flow_horizontalStyle="spread"
         app:flow_verticalGap="8dp"
         app:flow_horizontalGap="8dp"
 

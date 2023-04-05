@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">P002_UI_components</string>
+    <string name="hello_world">Hello World!</string>
+    <string name="text">Some text in a few lines</string>
+    <string name="hy">Hy, boys and girls.</string>
+    <string name="get_textview">Get TextView</string>
+    <string name="get_imageview">Get ImageView</string>
+    <string name="get_random_image">Get Random Image</string>
+    <string name="random_number">random number %d</string>
+    <string name="enter_image_keyword">Enter image keyword</string>
+</resources>

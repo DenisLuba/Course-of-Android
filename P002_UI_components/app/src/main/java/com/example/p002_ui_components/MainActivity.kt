@@ -1,20 +1,11 @@
 package com.example.p002_ui_components
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
-import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.constraintlayout.widget.ConstraintSet
-import androidx.core.content.res.ResourcesCompat
 import com.example.p002_ui_components.databinding.ActivityMainBinding
-import java.util.concurrent.TimeUnit
-import kotlin.random.Random
 
-class MainActivityViewBinding() : AppCompatActivity() {
+class MainActivity() : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -24,7 +15,8 @@ class MainActivityViewBinding() : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnGetText.setOnClickListener { startActivity(Intent(this, TextViewActivity::class.java)) }
-        binding.btnGetImage.setOnClickListener { startActivity(Intent(this, ImageViewActivity::class.java)) }
+        binding.btnGetImage.setOnClickListener { startActivity(Intent(this, ImageButtonCheckEditActivity::class.java)) }
+        binding.btnGetRadio.setOnClickListener { startActivity(Intent(this, RadioButtonActivity::class.java)) }
 
 //        Не работает
 //

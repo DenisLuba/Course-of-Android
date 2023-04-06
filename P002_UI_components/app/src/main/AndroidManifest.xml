@@ -13,8 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.P002_UI_components"
         tools:targetApi="31">
+
         <activity
-            android:name=".MainActivityViewBinding"
+            android:name=".MainActivity"
             android:configChanges="orientation|screenSize"
             android:exported="true">
             <intent-filter>
@@ -34,7 +35,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ImageViewActivity"
+            android:name=".ImageButtonCheckEditActivity"
             android:configChanges="orientation|screenSize"
             android:exported="true">
             <intent-filter>
@@ -43,7 +44,17 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivityFindViewById" />
+        <activity
+            android:name=".RadioButtonActivity"
+            android:configChanges="orientation|screenSize"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".FindViewByIdActivity" />
     </application>
 
 </manifest>

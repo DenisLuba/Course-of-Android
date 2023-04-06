@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 
-class MainActivityFindViewById : AppCompatActivity() {
+class FindViewByIdActivity : AppCompatActivity() {
 
     lateinit var helloWorldTextView: TextView
 
@@ -17,7 +17,7 @@ class MainActivityFindViewById : AppCompatActivity() {
         helloWorldTextView.setTextColor(android.graphics.Color.RED)
 
         helloWorldTextView.setOnClickListener {
-            val intent = Intent(this, MainActivityViewBinding::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
 

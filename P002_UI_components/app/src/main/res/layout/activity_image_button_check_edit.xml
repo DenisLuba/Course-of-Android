@@ -15,13 +15,13 @@
         app:layout_constraintVertical_chainStyle="packed"
 
         app:layout_constraintVertical_bias="0.1"
-        app:layout_constraintBottom_toTopOf="@id/getRandomImageButton"
+        app:layout_constraintBottom_toTopOf="@id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/getRandomImageButton"
+        android:id="@+id/button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/get_random_image"
@@ -30,22 +30,47 @@
         app:layout_constraintTop_toBottomOf="@id/imageView"
         app:layout_constraintStart_toStartOf="@id/imageView"
         app:layout_constraintEnd_toEndOf="@id/imageView"
-        app:layout_constraintBottom_toTopOf="@id/etKeyWord" />
+        app:layout_constraintBottom_toTopOf="@id/checkbox" />
+
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/use_keyword"
+        android:layout_marginTop="24dp"
+        android:checked="false"
+
+        app:layout_constraintTop_toBottomOf="@id/button"
+        app:layout_constraintBottom_toTopOf="@id/editText"
+        app:layout_constraintStart_toStartOf="@id/button" />
+
+<!--    То же самое, но по другому выглядит
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/use_keyword"
+        android:layout_marginTop="24dp"
+        android:checked="false"
+
+        app:layout_constraintTop_toBottomOf="@id/getRandomImageButton"
+        app:layout_constraintBottom_toTopOf="@id/etKeyWord"
+        app:layout_constraintStart_toStartOf="@id/getRandomImageButton" /> -->
 
     <EditText
-        android:id="@+id/etKeyWord"
+        android:id="@+id/editText"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="52dp"
         android:layout_marginTop="24dp"
         android:hint="@string/enter_image_keyword"
         android:inputType="text"
         android:importantForAutofill="no"
         android:imeOptions="actionSearch"
 
-        app:layout_constraintTop_toBottomOf="@id/getRandomImageButton"
-        app:layout_constraintStart_toStartOf="@id/getRandomImageButton"
-        app:layout_constraintEnd_toEndOf="@id/getRandomImageButton"
+        app:layout_constraintTop_toBottomOf="@id/checkbox"
+        app:layout_constraintStart_toStartOf="@id/button"
+        app:layout_constraintEnd_toEndOf="@id/button"
         app:layout_constraintBottom_toBottomOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">P003_LifeCycles</string>
+    <string name="show_another_activity">Show Another Activity</string>
+    <string name="show_transparent_activity">Show Transparent Activity</string>
+    <string name="minimize_the_app">Minimize The App</string>
+    <string name="another_one_activity">Another one activity</string>
+</resources>

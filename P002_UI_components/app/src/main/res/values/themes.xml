@@ -12,6 +12,9 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
+        <item name="android:textViewStyle">@style/ChildStyle1</item>
+        <item name="android:buttonStyle">@style/ChildStyle1</item>
     </style>
 
     <style name="Theme.P002_UI_components.NoActionBar">
@@ -22,4 +25,22 @@
     <style name="Theme.P002_UI_components.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.P002_UI_components.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="ParentStyle">
+        <item name="android:textSize">60sp</item>
+        <item name="android:textColor">@color/purple_700</item>
+    </style>
+
+    <style name="ChildStyle1" parent="ParentStyle">
+        <item name="fontFamily">casual</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:gravity">center</item>
+        <item name="android:lines">2</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="ParentStyle.ChildStyle2">
+        <item name="android:textStyle">italic</item>
+        <item name="android:gravity">center</item>
+    </style>
 </resources>

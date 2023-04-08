@@ -45,7 +45,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RadioButtonActivity"
+            android:name=".RadioButtonProgressBarActivity"
             android:configChanges="orientation|screenSize"
             android:exported="true">
             <intent-filter>

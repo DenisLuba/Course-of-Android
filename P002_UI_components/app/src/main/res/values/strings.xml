@@ -19,4 +19,8 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="get_radiobutton">Get RadioButton</string>
+    <string name="space">Space</string>
+    <string name="architecture">Architecture</string>
+    <string name="water">Water</string>
+    <string name="animals">Animals</string>
 </resources>

@@ -16,7 +16,7 @@ class MainActivity() : AppCompatActivity() {
 
         binding.btnGetText.setOnClickListener { startActivity(Intent(this, TextViewActivity::class.java)) }
         binding.btnGetImage.setOnClickListener { startActivity(Intent(this, ImageButtonCheckEditActivity::class.java)) }
-        binding.btnGetRadio.setOnClickListener { startActivity(Intent(this, RadioButtonActivity::class.java)) }
+        binding.btnGetRadio.setOnClickListener { startActivity(Intent(this, RadioButtonProgressBarActivity::class.java)) }
 
 //        Не работает
 //

@@ -9,6 +9,7 @@
 
 # Extra gradle files
 **/build.gradle
+!**/app/build.gradle
 **/gradle.properties
 **/gradlew
 **/gradlew.bat

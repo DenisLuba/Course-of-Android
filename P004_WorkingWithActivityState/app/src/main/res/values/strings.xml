@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">P004_WorkingWithActivityState</string>
+    <string name="o">0</string>
+    <string name="increment">Increment</string>
+    <string name="random_color">Random Color</string>
+    <string name="switch_visibility">Switch Visibility</string>
+</resources>

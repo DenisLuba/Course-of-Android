@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <!--
+    andorid:freezesText="true" сохраняет текст (но не цвет) при повороте экрана.
+    и даже при уничтожении системой
+    -->
+    <TextView
+        android:id="@+id/textViewCounter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="@string/o"
+        android:freezesText="true"
+        android:textColor="@color/purple_700"
+        android:textSize="56sp"
+        android:textStyle="bold"
+        app:layout_constraintVertical_chainStyle="packed"
+
+        app:layout_constraintBottom_toTopOf="@+id/btnIncrement"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnIncrement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/increment"
+        android:textAllCaps="false"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewCounter"
+        app:layout_constraintBottom_toTopOf="@id/btnRandomColor"/>
+
+    <Button
+        android:id="@+id/btnRandomColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/random_color"
+        android:textAllCaps="false"
+
+        app:layout_constraintEnd_toEndOf="@+id/btnIncrement"
+        app:layout_constraintStart_toStartOf="@+id/btnIncrement"
+        app:layout_constraintTop_toBottomOf="@+id/btnIncrement"
+        app:layout_constraintBottom_toTopOf="@id/btnSwitchVisibility"/>
+
+    <Button
+        android:id="@+id/btnSwitchVisibility"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/switch_visibility"
+        android:textAllCaps="false"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnIncrement"
+        app:layout_constraintStart_toStartOf="@+id/btnIncrement"
+        app:layout_constraintTop_toBottomOf="@+id/btnRandomColor" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

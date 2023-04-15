@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">P005_ListView_Spinner</string>
+    <string name="item_selected_message">You have selected the item: %1$s</string>
+</resources>

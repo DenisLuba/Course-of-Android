@@ -12,6 +12,7 @@ import com.example.p005_listview_spinner.databinding.ActivitySimpleListviewBindi
  *     текст,
  *     Checkable views (CheckBox, Switch, ...),
  *     изображения из локальных файлов по URL
+ *     и изображения по id из drawable
  */
 
 class SimpleAdapterActivity : AppCompatActivity() {

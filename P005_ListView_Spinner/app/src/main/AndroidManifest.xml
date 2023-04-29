@@ -13,7 +13,7 @@
         android:theme="@style/Theme.P005_ListView_Spinner"
         tools:targetApi="31">
         <activity
-            android:name=".ArrayAdapterActivity"
+            android:name=".baseadapter.BaseAdapterActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -5,11 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import com.example.p005_listview_spinner.Character
 import com.example.p005_listview_spinner.databinding.ItemCharacterBinding
 
 typealias OnDeletePressedListener = (Character) -> Unit
 
-class CharacterAdapter(
+class CharacterAdapterOfBase(
     private val characters: List<Character>,
     private val onDeletePressedListener: OnDeletePressedListener
 ) : BaseAdapter(), View.OnClickListener {
@@ -19,7 +20,7 @@ class CharacterAdapter(
     }
 
     override fun getItemId(position: Int): Long {
-        return characters[position].id
+        return characters[position].id as Long
     }
 
 //    если нет идентификатора id, то hasStableIds не должен возвращать true

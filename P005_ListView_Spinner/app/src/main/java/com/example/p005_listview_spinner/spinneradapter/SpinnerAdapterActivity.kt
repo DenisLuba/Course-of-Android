@@ -1,19 +1,21 @@
-package com.example.p005_listview_spinner.baseadapter
+package com.example.p005_listview_spinner.spinneradapter
 
 import android.content.DialogInterface
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.p005_listview_spinner.Character
 import com.example.p005_listview_spinner.R
-import com.example.p005_listview_spinner.databinding.ActivityBaseListviewBinding
+import com.example.p005_listview_spinner.databinding.ActivitySpinnerBinding
 import com.example.p005_listview_spinner.databinding.DialogAddCharacterBinding
 import kotlin.random.Random
 
-class BaseAdapterActivity : AppCompatActivity() {
+class SpinnerAdapterActivity : AppCompatActivity() {
 
-    private val binding: ActivityBaseListviewBinding by lazy {
-        ActivityBaseListviewBinding.inflate(layoutInflater)
+    private val binding: ActivitySpinnerBinding by lazy {
+        ActivitySpinnerBinding.inflate(layoutInflater)
     }
 
     private val data = mutableListOf(
@@ -24,7 +26,7 @@ class BaseAdapterActivity : AppCompatActivity() {
         Character(id = 5, name = "Smoke")
     )
 
-    private lateinit var adapter: CharacterAdapterOfBase
+    private lateinit var adapter: CharacterAdapterOfSpinner
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,13 +37,23 @@ class BaseAdapterActivity : AppCompatActivity() {
     }
 
     private fun setupList() {
-        adapter = CharacterAdapterOfBase(data) {
+        adapter = CharacterAdapterOfSpinner(data) {
             deleteCharacter(it)
         }
-        binding.listView.adapter = adapter
+        binding.spinner.adapter = adapter
 
-        binding.listView.setOnItemClickListener { parent, view, position, id ->
-            showCharacterInfo(adapter.getItem(position))
+//        вместо метода setOnItemClickListener используется onItemSelectedListener через интерфейс с
+//        AdapterView.OnItemSelectedListener
+        binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                binding.characterInfoTextView.text = ""
+            }
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val character = data[position]
+                binding.characterInfoTextView.text = getString(R.string.character_info, character.name, character.id)
+            }
         }
     }
 
@@ -66,15 +78,6 @@ class BaseAdapterActivity : AppCompatActivity() {
         )
         data.add(character)
         adapter.notifyDataSetChanged()
-    }
-
-    private fun showCharacterInfo(character: Character) {
-        val dialog: AlertDialog = AlertDialog.Builder(this)
-            .setTitle(character.name)
-            .setMessage(getString(R.string.character_info, character.name, character.id))
-            .setPositiveButton(R.string.ok) { _, _ -> }
-            .create()
-        dialog.show()
     }
 
     private fun deleteCharacter(character: Character) {

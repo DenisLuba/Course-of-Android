@@ -3,9 +3,7 @@ package com.example.p006_activitynavigation.activity
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import com.example.p006_activitynavigation.activity.AboutActivity
-import com.example.p006_activitynavigation.activity.BaseActivity
-import com.example.p006_activitynavigation.activity.BoxSelectionActivity
+import com.example.p006_activitynavigation.activity.model.Options
 import com.example.p006_activitynavigation.databinding.ActivityMenuBinding
 import java.lang.IllegalArgumentException
 

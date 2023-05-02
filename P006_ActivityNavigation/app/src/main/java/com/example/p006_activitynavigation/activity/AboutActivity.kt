@@ -1,7 +1,9 @@
 package com.example.p006_activitynavigation.activity
 
 import android.os.Bundle
+import com.example.p006_activitynavigation.BuildConfig
 import com.example.p006_activitynavigation.databinding.ActivityAboutBinding
+
 
 class AboutActivity : BaseActivity() {
     private lateinit var binding: ActivityAboutBinding

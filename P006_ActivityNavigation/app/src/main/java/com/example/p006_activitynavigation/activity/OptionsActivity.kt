@@ -3,7 +3,6 @@ package com.example.p006_activitynavigation.activity
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -25,12 +24,11 @@ class OptionsActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityOptionsBinding.inflate(layoutInflater).also { setContentView(it.root) }
 
-        options = savedInstanceState?.getParcelable<Options>(KEY_OPTIONS) ?:
+        options = savedInstanceState?.getParcelable(KEY_OPTIONS) ?:
                 intent.getParcelableExtra(EXTRA_OPTIONS) ?:
                 throw IllegalArgumentException("You need to specify EXTRA_OPTIONS argument to launch this activity")
 
         setupSpinner()
-        setupCheckBox()
         updateUi()
 
         binding.cancelButton.setOnClickListener { onCancelPressed() }
@@ -43,7 +41,7 @@ class OptionsActivity : BaseActivity() {
     }
 
     private fun setupSpinner() {
-        boxCountItems = (1..6).map { BoxCountItem(it, "$it boxes")}
+        boxCountItems = (1..6).map { BoxCountItem(it, resources.getQuantityString(R.plurals.boxes, it, it))}
         adapter = ArrayAdapter(
             this,
             R.layout.item_spinner,
@@ -63,12 +61,6 @@ class OptionsActivity : BaseActivity() {
         }
     }
 
-    private fun setupCheckBox() {
-        binding.enableTimerCheckBox.setOnClckListener {
-            options = options.copy(isTimerEnabled = binding.enableTimerCheckBox.isChecked)
-        }
-    }
-
     private fun updateUi() {
         binding.enableTimerCheckBox.isChecked = options.isTimerEnabled
 
@@ -81,6 +73,7 @@ class OptionsActivity : BaseActivity() {
     }
 
     private fun onConfirmPressed() {
+        options = options.copy(isTimerEnabled = binding.enableTimerCheckBox.isChecked)
         val intent = Intent()
         intent.putExtra(EXTRA_OPTIONS, options)
         setResult(Activity.RESULT_OK, intent)
@@ -88,8 +81,8 @@ class OptionsActivity : BaseActivity() {
     }
 
     companion object {
-        @JvmStatic val EXTRA_OPTIONS = "EXTRA_OPTIONS"
-        @JvmStatic private val KEY_OPTIONS = "KEY_OPTIONS"
+        const val EXTRA_OPTIONS = "EXTRA_OPTIONS"
+        private const val KEY_OPTIONS = "KEY_OPTIONS"
     }
 
     class BoxCountItem(

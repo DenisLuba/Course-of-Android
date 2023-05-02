@@ -4,7 +4,7 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-class Options(
+data class Options(
     val boxCount: Int,
     val isTimerEnabled: Boolean
 ) : Parcelable {

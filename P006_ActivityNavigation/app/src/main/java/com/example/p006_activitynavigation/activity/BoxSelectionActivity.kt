@@ -3,6 +3,7 @@ package com.example.p006_activitynavigation.activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.security.keystore.KeyNotYetValidException
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -10,9 +11,9 @@ import com.example.p006_activitynavigation.R
 import com.example.p006_activitynavigation.activity.model.Options
 import com.example.p006_activitynavigation.databinding.ActivityBoxSelectionBinding
 import com.example.p006_activitynavigation.databinding.ItemBoxBinding
-import java.lang.IllegalArgumentException
-import java.lang.Long.max
+import kotlin.math.max
 import kotlin.properties.Delegates
+import kotlin.random.Random
 
 class BoxSelectionActivity : BaseActivity() {
 
@@ -20,10 +21,11 @@ class BoxSelectionActivity : BaseActivity() {
 
     private lateinit var options: Options
 
-    private lateinit var timer: CountDownTimer
-
     private var timerStartTimestamp by Delegates.notNull<Long>()
-    private val boxIndex by Delegates.notNull<Int>()
+    private var boxIndex by Delegates.notNull<Int>()
+    private var alreadyDone = false
+
+    private var timerHandler: TimerHandler? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,12 +35,11 @@ class BoxSelectionActivity : BaseActivity() {
                 throw IllegalArgumentException("Can't launch BoxSelectionActivity without options")
         boxIndex = savedInstanceState?.getInt(KEY_INDEX) ?: Random.nextInt(options.boxCount)
 
-        if (options.isTimerEnabled) {
-            timerStartTimestamp = savedInstanceState?.getLong(KEY_START_TIMESTAMP)
-                ?: System.currentTimeMillis()
-            setupTimer()
-            updateTimerUi()
-        }
+        timerHandler = if (options.isTimerEnabled) {
+            TimerHandler()
+        } else null
+
+        timerHandler?.onCreate(savedInstanceState)
 
         createBoxes()
     }
@@ -46,23 +47,17 @@ class BoxSelectionActivity : BaseActivity() {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putInt(KEY_INDEX, boxIndex)
-        if (options.isTimerEnabled) {
-            outState.putLong(KEY_START_TIMESTAMP, timerStartTimestamp)
-        }
+        timerHandler?.onSaveInstanceState(outState)
     }
 
     override fun onStart() {
         super.onStart()
-        if (options.isTimerEnabled) {
-            timer.start()
-        }
+        timerHandler?.onStart()
     }
 
     override fun onStop() {
         super.onStop()
-        if (options.isTimerEnabled) {
-            timer.cancel()
-        }
+        timerHandler?.onStop()
     }
 
     private fun createBoxes() {
@@ -71,7 +66,8 @@ class BoxSelectionActivity : BaseActivity() {
             boxBinding.root.id = View.generateViewId()
             boxBinding.root.tag = index
             boxBinding.root.setOnClickListener { view -> onBoxSelected(view) }
-            boxBinding.boxTitleTextView.text = "Box ${index + 1}"
+            boxBinding.boxTitleTextView.text = getString(R.string.box_title, index + 1)
+            binding.root.addView(boxBinding.root)
             boxBinding
         }
 
@@ -80,31 +76,18 @@ class BoxSelectionActivity : BaseActivity() {
 
     private fun onBoxSelected(view: View) {
         if (view.tag as Int == boxIndex) {
+            alreadyDone = true // disabling timer if the user made a right choice
             val intent = Intent(this, BoxActivity::class.java)
             startActivity(intent)
         } else {
-            Toast.makeText(this, getString(R.string.box_is_empty), Toast.LENGTH_SHORT).show()
-        }
-    }
-
-    private fun setupTimer() {
-        timer = object : CountDownTimer(getRemainingSeconds() * 1000, 1000) {
-
-            override fun onTick(millisUntilFinished: Long) {
-                updateTimerUi()
-            }
-
-            override fun onFinish() {
-                updateTimerUi()
-                showTimerEndDialog()
-            }
+            Toast.makeText(this, getString(R.string.empty_box), Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun updateTimerUi() {
         if (getRemainingSeconds() >= 0) {
             binding.timerTextView.visibility = View.VISIBLE
-            binding.timerTextView.text = "Timer: ${getRemainingSeconds} sec."
+            binding.timerTextView.text = getString(R.string.timer_value, getRemainingSeconds())
         } else {
             binding.timerTextView.visibility = View.GONE
         }
@@ -113,9 +96,9 @@ class BoxSelectionActivity : BaseActivity() {
     private fun showTimerEndDialog() {
         val dialog: AlertDialog = AlertDialog.Builder(this)
             .setTitle(getString(R.string.the_end))
-            .setMessage(getString(R.string.no_enough_time))
+            .setMessage(getString(R.string.timer_end_message))
             .setCancelable(false)
-            .setPositiveButton(getString(R.string.ok)) { _, _ -> finish() }
+            .setPositiveButton(getString(android.R.string.ok)) { _, _ -> finish() }
             .create()
         dialog.show()
     }
@@ -125,11 +108,54 @@ class BoxSelectionActivity : BaseActivity() {
         return max(0, (finishedAt - System.currentTimeMillis()) / 1000)
     }
 
-    companion object {
-        @JvmStatic val EXTRA_OPTIONS = "EXTRA_OPTIONS"
-        @JvmStatic private val KEY_INDEX = "KEY_INDEX"
-        @JvmStatic private val KEY_START_TIMESTAMP = "KEY_START_TIMESTAMP"
+    inner class TimerHandler {
 
-        @JvmStatic private val TIMER_DURATION = 10_000L
+        private lateinit var timer: CountDownTimer
+
+        fun onCreate(savedInstanceState: Bundle?) {
+            timerStartTimestamp = savedInstanceState?.getLong(KEY_START_TIMESTAMP)
+                ?: System.currentTimeMillis()
+            alreadyDone = savedInstanceState?.getBoolean(KEY_ALREADY_DONE) ?: false
+        }
+
+        fun onSaveInstanceState(outState: Bundle) {
+            outState.putLong(KEY_START_TIMESTAMP, timerStartTimestamp)
+            outState.putBoolean(KEY_ALREADY_DONE, alreadyDone)
+        }
+
+        fun onStart() {
+            if (alreadyDone) return
+//            Таймер приостанавливается, когда приложение свернуто (onTick не вызван), но мы запомнили
+//            первоначальную отметку времени, когда экран был запущен, поэтому диалог отображается только
+//            через 10 секунд после первоначальной отметки в любом случае. Если приложение свернуто
+//            более 10 секунд, то диалог отображается сразу после восстановления приложения.
+            timer = object : CountDownTimer(getRemainingSeconds() * 1000, 1000) {
+
+                override fun onFinish() {
+                    updateTimerUi()
+                    showTimerEndDialog()
+                }
+
+                override fun onTick(millisUntilFinished: Long) {
+                    updateTimerUi()
+                }
+            }
+
+            updateTimerUi()
+            timer.start()
+        }
+
+        fun onStop() {
+            timer.cancel()
+        }
+    }
+
+    companion object {
+        const val EXTRA_OPTIONS = "EXTRA_OPTIONS"
+        private const val KEY_INDEX = "KEY_INDEX"
+        private const val KEY_START_TIMESTAMP = "KEY_START_TIMESTAMP"
+        private const val KEY_ALREADY_DONE = "KEY_ALREADY_DONE"
+
+        private const val TIMER_DURATION = 10_000L
     }
 }

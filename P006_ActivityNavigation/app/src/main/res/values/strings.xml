@@ -24,6 +24,8 @@
     <string name="done">Done</string>
     <string name="congratulations">Congratulations!</string>
     <string name="done_icon">Done icon</string>
+    <string name="version">1.0.0</string>
+    <string name="version_code_value">1</string>
     <plurals name="boxes">
         <item quantity="zero">%1$d boxes</item>
         <item quantity="one">%1$d box</item>

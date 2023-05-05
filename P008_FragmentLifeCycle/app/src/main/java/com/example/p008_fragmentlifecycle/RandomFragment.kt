@@ -1,5 +1,6 @@
 package com.example.p008_fragmentlifecycle
 
+import android.Manifest
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
@@ -7,8 +8,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+
 import com.example.p008_fragmentlifecycle.databinding.FragmentRandomBinding
 import com.github.javafaker.Faker
 import kotlin.properties.Delegates
@@ -33,6 +36,11 @@ class RandomFragment : Fragment(), HasUuid, NumberListener {
         get() = requireArguments().getString(ARG_UUID)!!
         set(value) = requireArguments().putString(ARG_UUID, value)
 
+//    запрос разрешения (permission) при нажатии на кнопку changeBackgroundButton (метод updateUi())
+    private val permissionRequestLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) {
+//        some callback function
+}
+
 //    *************************************************************
 
     override fun onAttach(context: Context) {
@@ -45,16 +53,19 @@ class RandomFragment : Fragment(), HasUuid, NumberListener {
         super.onCreate(savedInstanceState)
         log("$uuidArgument: onCreate")
 
-//        init|restore state
+        retainInstance = true
+
+        //        init|restore state
         backgroundColor = savedInstanceState?.getInt(KEY_BACKGROUND_COLOR) ?: getRandomColor()
         chuckNorrisFact = savedInstanceState?.getString(KEY_CHUCK_NORRIS_FACT) ?: getNextChuckNorrisFact()
-    }
+}
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
+
         binding = FragmentRandomBinding.inflate(inflater, container, false)
 
         setupUi() // setup button listeners
@@ -136,6 +147,9 @@ class RandomFragment : Fragment(), HasUuid, NumberListener {
             changeBackgroundButton.setOnClickListener {
                 backgroundColor = getRandomColor()
                 updateUi()
+
+                permissionRequestLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
+                permissionRequestLauncher.launch(Manifest.permission.ACCESS_COARSE_LOCATION)
             }
             changeChuckNorrisFactButton.setOnClickListener {
                 chuckNorrisFact = getNextChuckNorrisFact()

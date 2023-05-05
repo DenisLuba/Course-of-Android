@@ -40,7 +40,12 @@ class MainActivity : AppCompatActivity(), Navigator {
     override fun launchNext() {
         supportFragmentManager.beginTransaction()
             .addToBackStack(null)
-            .add(R.id.fragmentContainer, createFragment())
+//            .add(R.id.fragmentContainer, createFragment()) // фрагменты накладываются один на другой,
+//            не уничтожая View, что сильно накладно по ресурсам. А также, если на первом фрагменте,
+//            например, кнопка располагается где-нибудь в том месте, где у второго фрагмента нет ничего,
+//            и пользователь нажмет на это место, то может сработать эта кнопка первого фрагмента,
+//            хоть она и не видна из под второго фрагмента.
+            .replace(R.id.fragmentContainer, createFragment())
             .commit()
     }
 

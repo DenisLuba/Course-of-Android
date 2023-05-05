@@ -1,0 +1,15 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.P008_FragmentLifeCycle" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.P008_FragmentLifeCycle" parent="Base.Theme.P008_FragmentLifeCycle" />
+
+    <style name="DefaultButton" parent="Widget.Material3.Button">
+        <item name="textAllCaps">false</item>
+        <item name="android:minWidth">200dp</item>
+    </style>
+
+</resources>

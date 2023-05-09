@@ -1,0 +1,19 @@
+package com.example.p009_alertdialog.entities
+
+class AvailableVolumeValues(
+    val values: List<Int>,
+    val currentIndex: Int
+) {
+    companion object {
+        fun createVolumeValues(currentValue: Int) : AvailableVolumeValues {
+            val values: IntProgression = (0..100 step 10)
+            val currentIndex = values.indexOf(currentValue)
+            return if (currentIndex == -1) {
+                val list: List<Int> = values + currentValue // values.plus(currentValue)
+                AvailableVolumeValues(list, list.lastIndex)
+            } else {
+                AvailableVolumeValues(values.toList(), currentIndex)
+            }
+        }
+    }
+}

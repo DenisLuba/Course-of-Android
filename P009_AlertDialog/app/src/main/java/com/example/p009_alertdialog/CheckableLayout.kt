@@ -32,6 +32,7 @@ class CheckableLayout(
         super.onFinishInflate()
         val checkableView = checkableChild as View
         checkableView.isFocusableInTouchMode = false
+        checkableView.isFocusable = false
         checkableView.isClickable = false
     }
 

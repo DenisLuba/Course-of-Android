@@ -29,7 +29,7 @@ class DialogsLevel1Activity : AppCompatActivity() {
                 showAlertDialog()
             }
             showSingleChoiceAlertDialogButton.setOnClickListener {
-                showSingleChoiceAlertDialogButton
+                showSingleChoiceAlertDialog()
             }
             showSingleChoiceWithConfirmationAlertDialogButton.setOnClickListener {
                 showSingleChoiceWithConfirmationAlertDialog()

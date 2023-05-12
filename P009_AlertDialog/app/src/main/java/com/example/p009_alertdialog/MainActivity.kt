@@ -1,11 +1,27 @@
 package com.example.p009_alertdialog
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.p009_alertdialog.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater).also { setContentView(it.root) }
+
+        binding.level1Button.setOnClickListener {
+            startActivity(Intent(this, DialogsLevel1Activity::class.java))
+        }
+
+        binding.level2Button.setOnClickListener {
+            startActivity(Intent(this, DialogsLevel2Activity::class.java))
+        }
+
+        binding.exitButton.setOnClickListener {
+            finish()
+        }
     }
 }

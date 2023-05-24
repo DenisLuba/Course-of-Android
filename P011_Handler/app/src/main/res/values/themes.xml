@@ -5,5 +5,5 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.P011_Handler" parent="Base.Theme.P010_DialogFragment" />
+    <style name="Theme.P011_Handler" parent="Base.Theme.P011_Handler" />
 </resources>

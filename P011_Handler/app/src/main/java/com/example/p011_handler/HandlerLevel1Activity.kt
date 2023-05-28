@@ -21,7 +21,6 @@ class HandlerLevel1Activity : AppCompatActivity() {
 
     private val token = Any()
 
-    @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHandlerBinding.inflate(layoutInflater).also { setContentView(it.root) }
@@ -48,7 +47,7 @@ class HandlerLevel1Activity : AppCompatActivity() {
         Toast.makeText(this, R.string.hello, Toast.LENGTH_SHORT).show()
     }
 
-    @RequiresApi(Build.VERSION_CODES.P)
+
     private val universalButtonListener = View.OnClickListener {
         Thread {
             when (it.id) {
@@ -64,9 +63,13 @@ class HandlerLevel1Activity : AppCompatActivity() {
                     handler.postDelayed( { nextRandomColor() }, DELAY)
 
                 R.id.randomColorTokenDelayedButton ->
-                    handler.postDelayed( { nextRandomColor() }, token, DELAY)
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
+                        handler.postDelayed( { nextRandomColor() }, token, DELAY)
+                    else handler.postDelayed( { nextRandomColor() }, DELAY)
                 R.id.showToastButton ->
-                    handler.postDelayed( { showToast() },token, DELAY)
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
+                        handler.postDelayed( { showToast() },token, DELAY)
+                    else handler.postDelayed( { showToast() }, DELAY)
                 R.id.cancelButton -> handler.removeCallbacksAndMessages(token)
             }
         }.start()

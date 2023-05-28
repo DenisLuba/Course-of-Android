@@ -21,6 +21,7 @@ class HandlerLevel1Activity : AppCompatActivity() {
 
     private val token = Any()
 
+    @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHandlerBinding.inflate(layoutInflater).also { setContentView(it.root) }

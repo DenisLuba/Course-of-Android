@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">P012_SharedPreferences</string>
+    <string name="save">Save</string>
+    <string name="current_value_in_shared_preferences">Current value in shared preferences:</string>
+</resources>

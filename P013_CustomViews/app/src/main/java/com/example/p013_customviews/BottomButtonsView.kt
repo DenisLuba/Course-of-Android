@@ -26,7 +26,7 @@ class BottomButtonsView @JvmOverloads constructor(
     defStyleRes: Int = R.style.MyBottomButtonsStyle
 ) : ConstraintLayout(context, attrs, defStyleAttr, defStyleRes) {
 
-    var isProgressMode: Boolean = false
+    private var isProgressMode: Boolean = false
         set(value) {
             field = value
             if (value) {
@@ -65,7 +65,7 @@ class BottomButtonsView @JvmOverloads constructor(
 
         with(binding) {
             val positiveButtonText: String? = typedArray
-                .getString(R.styleable.BottomButtonsView_bottomNegativeButtonText)
+                .getString(R.styleable.BottomButtonsView_bottomPositiveButtonText)
             setPositiveButtonText(positiveButtonText)
 
             val negativeButtonText: String? = typedArray

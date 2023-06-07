@@ -3,12 +3,16 @@
     <style name="Base.Theme.P013_CustomViews" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <item name="materialButtonStyle">@style/MyButtonsStyle</item>
     </style>
 
     <style name="Theme.P013_CustomViews" parent="Base.Theme.P013_CustomViews" />
 
     <style name="MyButtonsStyle" parent="Widget.Material3.Button">
-        <item name="android:textAllCaps">false</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="backgroundTint">#6B2B06</item>
+        <item name="android:textColor">#C1BFBE</item>
     </style>
 
     <style name="ConcreteMyButtonsStyle">

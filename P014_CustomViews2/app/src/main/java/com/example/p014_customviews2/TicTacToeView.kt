@@ -50,11 +50,11 @@ class TicTacToeView(
         private var gridColor by Delegates.notNull<Int>()
 
         // safe zone rect where we can drawing
-        private val fieldRect = Rect(0f, 0f, 0f, 0f)
+        private val fieldRect = RectF(0f, 0f, 0f, 0f)
         // size of one cell
         private var cellSize: Float = 0f
         // padding in the cell
-        privatevar cellPadding: Float = 0f
+        private var cellPadding: Float = 0f
 
         // helper variable to avoid object allocation in onDraw
         private var cellRect = RectF()
@@ -74,7 +74,7 @@ class TicTacToeView(
 
         // if global style is defined in app theme by using TicTacToeFieldStyle attribute ->
         // all TicTacToe views in the project will use that style
-        constructor(context: Context, attributesSet, AttributeSet?) : this(context, attributesSet, R.attr.TicTacToeFieldStyle)
+        constructor(context: Context, attributesSet: AttributeSet?) : this(context, attributesSet, R.attr.ticTacToeFieldStyle)
 
         constructor(context: Context) : this(context, null)
 
@@ -127,7 +127,7 @@ class TicTacToeView(
         }
 
         private fun initAttributes(attributesSet: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
-            val tipedArray = context.obtainStyledAttributes(attributesSet, R.styleable.TicTacToeView, defStyleAttr, defStyleRes)
+            val typedArray = context.obtainStyledAttributes(attributesSet, R.styleable.TicTacToeView, defStyleAttr, defStyleRes)
 
             // parsing XML attributes
             player1Color = typedArray.getColor(R.styleable.TicTacToeView_player1Color, PLAYER1_DEFAULT_COLOR)
@@ -143,14 +143,14 @@ class TicTacToeView(
             gridColor = GRID_DEFAULT_COLOR
         }
 
-        override fun onAttachedToWidow() {
-            super.onAttachedToWidow()
+        override fun onAttachedToWindow() {
+            super.onAttachedToWindow()
             // start listening field data changes
             field?.listeners?.add(listener)
         }
 
-        override fun onDetachFromWindow() {
-            super.onDetachFromWindow()
+        override fun onDetachedFromWindow() {
+            super.onDetachedFromWindow()
             // stop listening field data changes
             field?.listeners?.remove(listener)
         }
@@ -167,7 +167,7 @@ class TicTacToeView(
 
         override fun onRestoreInstanceState(state: Parcelable?) {
             // example of restoring view state
-            val savedState = start as SavedState
+            val savedState = state as SavedState
             super.onRestoreInstanceState(savedState.superState)
             currentRow = savedState.currentRow
             currentColumn = savedState.currentColumn
@@ -232,7 +232,7 @@ class TicTacToeView(
 
         override fun onDraw(canvas: Canvas) {
             super.onDraw(canvas)
-            if (field = null) return
+            if (field == null) return
             if (cellSize == 0f) return
             if (fieldRect.width() <= 0) return
             if (fieldRect.height() <= 0) return

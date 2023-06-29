@@ -1,4 +1,3 @@
 package com.example.p016_mvvm_architecture
 
-class Exceptions {
-}
+class UserNotFoundException: Exception()
